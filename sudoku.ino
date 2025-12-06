@@ -10,6 +10,7 @@ Servo myServo;
 
 const int N = 3;
 bool search = false;
+bool start = false
 uint8_t n = 0;
 unit8_t tr =0;
 int initial[N][N] = {
@@ -51,7 +52,7 @@ void core2(void *pvParameters) {
 }
 void setup() {
   Serial.begin(9600);
-  
+   myServo.attach(1);
 
   #if defined(ESP32)
     // Создаем задачу на втором ядре
@@ -66,10 +67,23 @@ void setup() {
     );
   #endif
 }
-
+void ser(){//тут надо будет настроить
+   for (int angle = 0; angle <= 90; angle++) {
+    myServo.write(angle);
+    delay(15); 
+  }
+  for (int angle = 90; angle >= 0; angle--) {
+    myServo.write(angle);
+    delay(15);
+  }
+}
 void loop() {
   if(tr = 9){
     sud(initial);
+  }
+  if(start){
+     //тут так же катает по линии
+    ser();//хоп хоп искинул
   }
   //добавь здесь код где он ездит и когда останавливается searh делай true и обратно false и не большая задержка и присваивай N[такой то,такой]=n и tr увеличивай
 }
