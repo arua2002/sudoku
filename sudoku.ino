@@ -1,6 +1,6 @@
-#include <Arduino.h>
 #include "SudokuSolver.h"
 #include "Sensor.h"
+#include <Dynamixel2Arduino.h>
 SudokuSolver solver;
 Sensor mySensor;
 const int N = 3;
