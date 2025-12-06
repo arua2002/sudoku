@@ -18,3 +18,27 @@ CameraModule camera(
     18,         // CLK (тактовый SPI для дисплея)
     19          // MISO (ответ от дисплея, если нужен)
 );
+#include "CameraModule.h"
+
+CameraModule camera(0x42, 21, 22, 15, 2, 23, 18, 19);
+
+void setup() {
+  Serial.begin(115200);
+  if (!camera.begin()) {
+    Serial.println("Camera initialization failed");
+    while(1);
+  }
+}
+
+void loop() {
+  // Захватить изображение
+  camera.captureImage();
+
+  // Обработать изображение в черно-белое
+  camera.convertToBlackWhite();
+
+  // Отобразить черно-белое изображение
+  camera.displayImage();
+
+  delay(1000);
+}
