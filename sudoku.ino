@@ -1,8 +1,10 @@
-#include <Servo.h>
+#include <ESP32Servo.h>
 #include "SudokuSolver.h"
 #include "CameraModule.h"
 #include <TrackingCamI2C.h>
+#include <RobotCar.h>
 
+RobotCar robot;
 TrackingCamI2C trackingCam;
 SudokuSolver solver;
 CameraModule myCAM;
@@ -10,16 +12,17 @@ Servo myServo;
 
 const int N = 3;
 bool search = false;
-bool start = false
+bool start = false; 
 uint8_t n = 0;
-unit8_t tr =0;
+uint8_t tr = 0; 
+
 int initial[N][N] = {
-    {0, 0, 0},
-    {0, 0, 0},
-    {0, 0, 0}
+  {0, 0, 0},
+  {0, 0, 0},
+  {0, 0, 0}
 };
 
-//решаем судоку
+// Решаем судоку
 void sud(int initial[N][N]) {
   solver.setInitial(initial);
   if (solver.solve()) {
@@ -30,29 +33,27 @@ void sud(int initial[N][N]) {
         initial[i][j] = solution[i][j];
       }
     }
-  }
-  else{
+  } else {
     // Если решения нет, ничего не делаем
   }
-  
 }
 
 // Функция задачи для второго ядра
 void core2(void *pvParameters) {
-
   trackingCam.init(51, 400000);
-  delay(5000); 
+  delay(5000);
 
   while (true) {
     if (search) {
       n = trackingCam.readBlobs(3); // чтение максимум 3 объектов
     }
-    delay(1000); // задержка между чтениями
+    delay(1000); 
   }
 }
+
 void setup() {
   Serial.begin(9600);
-   myServo.attach(1);
+  myServo.attach(1);
 
   #if defined(ESP32)
     // Создаем задачу на втором ядре
@@ -67,23 +68,33 @@ void setup() {
     );
   #endif
 }
-void ser(){//тут надо будет настроить
-   for (int angle = 0; angle <= 90; angle++) {
+
+void ser() { // тут надо будет настроить
+  for (int angle = 0; angle <= 90; angle++) {
     myServo.write(angle);
-    delay(15); 
+    delay(15);
   }
   for (int angle = 90; angle >= 0; angle--) {
     myServo.write(angle);
     delay(15);
   }
 }
+
 void loop() {
-  if(tr = 9){
+  if (tr == 9) {
     sud(initial);
   }
-  if(start){
-     //тут так же катает по линии
-    ser();//хоп хоп искинул
+
+  if (start) {
+    // тут так же катает по линии
+    ser(); // Хоп-хоп и скинул
+    // Здесь добавьте код для движения и логики определения search
+    // Например:
+    // robot.robotMove(...);
+    // В конце:
+    // search = !search; // меняет состояние
   }
-  //добавь здесь код где он ездит и когда останавливается searh делай true и обратно false и не большая задержка и присваивай N[такой то,такой]=n и tr увеличивай
+
+  // Можно добавить небольшую задержку
+  delay(100);
 }
