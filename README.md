@@ -36,17 +36,15 @@ RobotCar.h - методы для движения робота
   void testSensor(); - [ ]
 }
 SudokuSolver.h - {
-     SudokuSolver();  - [ конструктор, заполнение массива нулями]
-
-    // установить начальные значения
-    void setInitial(int initial[N][N]);  - [ Загружает начальное состояние доски из переданного массива initial]
-
-    // решить судоку
-    isSafe(int row, int col, int num)  - [ Проверяет, можно ли поставить число num в ячейку [row][col].]
-    findEmptyCell(int &row, int &col)  - [ Находит первую свободную (пустую) ячейку (значение 0).]
-    bool solve(); - [ запускает решение судоку.]
-    solveSudoku() - [ Это рекурсивный метод, использующий алгоритм "backtracking".]
-    // получить решение
-    void getBoard(int out[N][N]); - [ ]
+  SudokuSolver();  - [ конструктор, заполнение массива нулями]
+  // установить начальные значения
+  void setInitial(int initial[N][N]);  - [ Загружает начальное состояние доски из переданного массива initial]
+  // решить судоку
+  isSafe(int row, int col, int num)  - [ Проверяет, можно ли поставить число num в ячейку [row][col].]
+  findEmptyCell(int &row, int &col)  - [ Находит первую свободную (пустую) ячейку (значение 0).]
+  bool solve(); - [ запускает решение судоку.]
+  solveSudoku() - [ Это рекурсивный метод, использующий алгоритм "backtracking".]
+  // получить решение
+  void getBoard(int out[N][N]); - [ ]
 
 }
