@@ -2,61 +2,62 @@
 ## sudoku.ino - основной файл где всё призывается и используется
 ## RobotCar.h - методы для движения робота 
 #Инициализация пинов
--void preSetup(); - [ ]
+- void preSetup(); - [ ]
 
--Движение
+- Движение
 
-  -void robotMove(int speedLeft, int speedRight); - [ ]
+  - void robotMove(int speedLeft, int speedRight); - [ ]
 
-  -void robotStop(); - [ ]
+  - void robotStop(); - [ ]
 
--Управление моторами
+- Управление моторами
 
-  -void leftMotor(int speed); - [ ]
+  - void leftMotor(int speed); - [ ]
 
-  -void rightMotor(int speed); - [ ]
+  - void rightMotor(int speed); - [ ]
 
--Навигация
+- Навигация
 
-  -void goToLine(); - [ ]
+  - void goToLine(); - [ ]
 
-  -void goToCross(); - [ ]
+  - void goToCross(); - [ ]
 
-  -void goToCube(); - [ ]
+  - void goToCube(); - [ ]
 
-  -void turnLeftLine(int time); - [ ]
+  - void turnLeftLine(int time); - [ ]
 
-  -void turnRightLine(int time); - [ ]
+  - void turnRightLine(int time); - [ ]
 
-  -void forward(int time); - [ ]
+  - void forward(int time); - [ ]
 
--Сенсоры
+- Сенсоры
 
-  -int getSL(); - [ ]
+  - int getSL(); - [ ]
 
-  -int getSR(); - [ ]
+  - int getSR(); - [ ]
 
-  -int getCalibrSL(); - [ ]
+  - int getCalibrSL(); - [ ]
 
-  -int getCalibrSR(); - [ ]
+  - int getCalibrSR(); - [ ]
 
-  -boolean getCross(); - [ ]
+  - boolean getCross(); - [ ]
 
-  -boolean getCube(); - [ ]
+  - boolean getCube(); - [ ]
 
 
--Ультразвуковой датчик
+- Ультразвуковой датчик
 
-  -int uZvuk(); - [ ]
+  - int uZvuk(); - [ ]
 
--Тестирование сенсоров
+- Тестирование сенсоров
 
-  -void testCalibrSensor(); - [ ]
+  - void testCalibrSensor(); - [ ]
 
-  -void testSensor(); - [ ]
-
+  - void testSensor(); - [ ]
+  - 
 ## SudokuSolver.h
 -SudokuSolver();  - [конструктор, заполнение массива нулями]
+
 -установить начальные значения
   -void setInitial(int initial[N][N]);  - [Загружает начальное состояние доски из переданного массива initial]
 -решить судоку
