@@ -1,5 +1,6 @@
-sudoku.ino - основной файл где всё призывается и используется
-RobotCar.h - методы для движения робота 
+# О проекте
+## sudoku.ino - основной файл где всё призывается и используется
+## RobotCar.h - методы для движения робота 
 {
  // Инициализация пинов
   void preSetup(); - [ ]
@@ -35,10 +36,11 @@ RobotCar.h - методы для движения робота
   void testCalibrSensor(); - [ ]
   void testSensor(); - [ ]
 }
-SudokuSolver.h - {
+## SudokuSolver.h - {
   SudokuSolver();  - [ конструктор, заполнение массива нулями]
   // установить начальные значения
   void setInitial(int initial[N][N]);  - [ Загружает начальное состояние доски из переданного массива initial]
+
   // решить судоку
   isSafe(int row, int col, int num)  - [ Проверяет, можно ли поставить число num в ячейку [row][col].]
   findEmptyCell(int &row, int &col)  - [ Находит первую свободную (пустую) ячейку (значение 0).]
