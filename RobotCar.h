@@ -44,13 +44,13 @@ public:
 
 private:
   // Пины
-  const int DIR_L1 = 6;
-  const int DIR_L2 = 7;
-  const int PWM_L = 5;
+const int IN1 = 12;//13
+const int IN2 = 14;//12
+const int ENA = 13;//14
 
-  const int DIR_R1 = 8;
-  const int DIR_R2 = 9;
-  const int PWM_R = 10;
+const int IN3 = 27;//27
+const int IN4 = 26;//26
+const int ENB = 25;//25
 
   const int PIN_TRIG = 12;
   const int PIN_ECHO = 11;
