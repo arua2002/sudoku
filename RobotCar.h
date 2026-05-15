@@ -7,6 +7,7 @@ class RobotCar {
 public:
   // Конструктор
   RobotCar();
+
   // Инициализация пинов
   void preSetup();
 
