@@ -70,8 +70,6 @@ const int ENB = 25;//25
   int minR = 35;
   int maxL = 780;
   int maxR = 550;
-  int getSl = 0;
-  int maxl = 10845;
 };
 
 #endif
